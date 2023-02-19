@@ -1,0 +1,7 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t mugaz/docker_CI -f Dockerfile.dev .
+script:
+  - docker run mugaz/docker_CI npm run test -- --coverage
